@@ -14,7 +14,7 @@ from services.prophet_service import generate_forecast
 
 
 def load_css():
-    css_path = Path(r"assets\styles.css")
+    css_path = Path("assets/styles.css")
     with open(css_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
