@@ -1,0 +1,34 @@
+/* Main background and text */
+.stApp {
+    background-color: #F8F9FA;
+}
+
+/* Card styling for KPI metrics */
+div[data-testid="metric-container"] {
+    background-color: white;
+    border: 1px solid #E0E0E0;
+    padding: 5% 5% 5% 10%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* AI Recommendation Dark Card */
+.ai-card {
+    background-color: #15192C;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.ai-btn {
+    background-color: #6C5DD3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: bold;
+}
