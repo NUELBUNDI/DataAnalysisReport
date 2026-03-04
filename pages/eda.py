@@ -18,11 +18,21 @@ st.set_page_config(page_title="SalesAI Dashboard", layout="wide", initial_sideba
 from pathlib import Path
 
 def load_css():
-    css_path = Path("assests\styles.css")
-    with open(css_path, 'r') as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    # Get absolute path relative to this Python file
+    base_path = Path(__file__).parent
+    css_path = base_path / "assets" / "styles.css"
 
-# Load once at top
+    if css_path.exists():
+        with open(css_path, "r", encoding="utf-8") as f:
+            st.markdown(
+                f"<style>{f.read()}</style>",
+                unsafe_allow_html=True
+            )
+    else:
+        st.warning(f"CSS file not found at {css_path}")
+
+
+# Call at top of app
 load_css()
 
 ################# Load Sessions/ instantiate SessionState ##########################
