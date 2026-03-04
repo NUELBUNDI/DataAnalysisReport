@@ -14,26 +14,16 @@ from services.prophet_service import generate_forecast
 
 
 def load_css():
-    # Get absolute path relative to this Python file
-    base_path = Path(__file__).parent
-    css_path = base_path / "assets" / "styles.css"
+    css_path = Path(r"assets\styles.css")
+    with open(css_path) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-    if css_path.exists():
-        with open(css_path, "r", encoding="utf-8") as f:
-            st.markdown(
-                f"<style>{f.read()}</style>",
-                unsafe_allow_html=True
-            )
-    else:
-        st.warning(f"CSS file not found at {css_path}")
-
-
-# Call at top of app
+# Load once at top
 load_css()
 
 ############# Get Data ######################
 
-df_revenue              = get_data(r'data\amazon_sales_dataset.csv')
+df_revenue              = get_data('data/amazon_sales_dataset.csv')
 df_revenue['order_date']= pd.to_datetime(df_revenue['order_date']).dt.date
 
 max_date = df_revenue['order_date'].max()
